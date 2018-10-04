@@ -1,0 +1,57 @@
+#include "std_lib_facilities.h"
+
+int main()
+
+{
+double sm = 200;
+double la = 0;
+double pp = 0;
+string u = " " ;
+vector<double> v ;
+
+//ha kiakarsz lépni írj "befejez"-t a unit helyére
+
+while(u != "befejez") {
+cout<<"Value : ",
+cin>>pp;
+cout<<"Unit (cm,m,in,ft) : ";
+cin>>u;
+if(u == "m" ){
+v.push_back(pp);
+}
+else if(u == "cm"){
+v.push_back(pp/100);
+}
+else if(u == "in"){
+v.push_back(pp*0.0254);
+}
+else if(u == "ft"){
+v.push_back(pp*0.3048);
+}
+else {
+cout<<"Incorrect unit."<<endl;
+}
+
+//legkisebb/legnagyobb
+
+if(pp<sm){
+sm = pp;
+}
+else if (pp>la){
+la = pp;
+}
+}
+
+
+//
+sort(v);
+cout<<"Smallest value : "<<sm<<endl;
+cout<<"Largest value : "<<la<<endl;
+cout<<"Size of the vector : "<<v.size()<<endl;
+cout<<"Value sorted : "<<endl;
+for(int i = 0;i<v.size();i++)
+{
+cout<<v[i]<<"m"<<endl;
+}
+return 0;
+}
